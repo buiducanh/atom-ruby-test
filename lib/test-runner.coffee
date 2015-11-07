@@ -27,9 +27,12 @@ module.exports =
           @testParams.testSingleCommand()
         else if @params.testScope == "all"
           @testParams.testAllCommand()
+        else if @params.testScope == "nearest"
+          @testParams.testNearestCommand()
         else
           @testParams.testFileCommand()
       cmd.replace('{relative_path}', @testParams.activeFile()).
+          replace('{nearest_test_path}', @testParams.nearestTestFile()).
           replace('{line_number}', @testParams.currentLine()).
           replace('{regex}', @testParams.minitestRegExp())
 

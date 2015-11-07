@@ -24,6 +24,7 @@ class RubyTestView extends View
     atom.commands.add "atom-workspace", "ruby-test:test-file", => @testFile()
     atom.commands.add "atom-workspace", "ruby-test:test-single", => @testSingle()
     atom.commands.add "atom-workspace", "ruby-test:test-previous", => @testPrevious()
+    atom.commands.add "atom-workspace", "ruby-test:test-nearest", => @testNearestFile()
     atom.commands.add "atom-workspace", "ruby-test:test-all", => @testAll()
     atom.commands.add "atom-workspace", "ruby-test:cancel", => @cancelTest()
     new ResizeHandle(@)
@@ -57,6 +58,9 @@ class RubyTestView extends View
 
   testAll: ->
     @runTest(testScope: "all")
+
+  testNearestFile: ->
+    @runTest(testScope: "nearest")
 
   testPrevious: ->
     return unless @runner

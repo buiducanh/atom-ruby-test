@@ -31,6 +31,9 @@ module.exports =
     testSingleCommand: ->
       atom.config.get("ruby-test.#{@testFramework()}SingleCommand")
 
+    testNearestCommand: ->
+      atom.config.get("ruby-test.#{@testFramework()}NearestCommand")
+
     activeFile: ->
       @_activeFile ||= (fp = @filePath()) and atom.project.relativize(fp)
 
@@ -42,6 +45,14 @@ module.exports =
           cursor.getBufferRow() + 1
         else
           null
+
+    nearestTestFile: ->
+      fp = @activeFile()
+      pathDestructRegex = /^(.+\/)*(.+)\.(.+)$/
+      fp = fp.replace(/^.*?\//, "spec/")
+      fp = fp.replace(pathDestructRegex, "$1$2_spec.$3")
+
+      @_nearestTestFile ||= fp
 
     minitestRegExp: ->
       return @_minitestRegExp if @_minitestRegExp != undefined

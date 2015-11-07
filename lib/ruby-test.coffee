@@ -38,6 +38,10 @@ module.exports =
       title: "RSpec command: run spec at current line"
       type: 'string',
       default: "rspec --tty {relative_path}:{line_number}"
+    rspecNearestCommand:
+      title: "RSpec command: run spec corresponding to this file"
+      type: 'string',
+      default: "rspec --tty {nearest_test_path}"
     cucumberAllCommand:
       title: "Cucumber command: Run all features"
       type: 'string',

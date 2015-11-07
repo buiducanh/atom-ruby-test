@@ -13,6 +13,7 @@
   'cmd-ctrl-t': 'ruby-test:test-file'
   'cmd-ctrl-r': 'ruby-test:test-single'
   'cmd-ctrl-e': 'ruby-test:test-previous'
+  'cmd-ctrl-w': 'ruby-test:test-nearest'
   'cmd-ctrl-c': 'ruby-test:cancel'
 
 '.platform-linux atom-workspace':
